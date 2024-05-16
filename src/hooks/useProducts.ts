@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Product } from "../types/Product";
 import { httpBaseUrl } from "../common/constants";
 
-export default function useProducts(){
+export default function useProducts(filter = (p:any) => true){
 
     let [products,setProducts] = React.useState<Product[]>([]);
 
@@ -12,6 +12,6 @@ export default function useProducts(){
         .then(data => setProducts(data));
      }, []);
 
-     return products;
+     return products.filter(filter);
 
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
          
            <div className="container-fluid">  <div className="row">
             <div className="col">
-                <h1>My Cart</h1>
+                <Link to="/" className='fs-3'>My Cart</Link>
             </div>
             <div className="col-auto">
                 <a href='/register'>Register</a>

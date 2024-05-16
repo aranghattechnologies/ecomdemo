@@ -1,10 +1,14 @@
 import { useParams } from "react-router-dom";
 import useProduct from "../hooks/useProduct";
+import useProducts from "../hooks/useProducts";
+import ProductTile from "../components/ProductTile";
 
 export default function ProductDetails() {
     
-    let {id}    = useParams<{id : string}>();
-    let product = useProduct({id});
+    let {id}     = useParams<{id : string}>();
+    let product  = useProduct({id});
+    let products = useProducts(d => d.category === product?.category && d.id !== product?.id)
+               
     
     return(<>
         {product ? <>
@@ -24,6 +28,9 @@ export default function ProductDetails() {
             </div>
 
             <h4 className="my-4">Similar Products</h4>
+            <div>
+                {products.map(product => <ProductTile key={product.id} product={product} />)}
+            </div>
 
         </> : "Sorry product not found"}
     </>)
