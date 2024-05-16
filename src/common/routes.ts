@@ -3,7 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 
 const routes = [
-    { path : "/", Component : App}
-]
+    { path : "/", Component : App }
+];
 
-export default routes;
+const router = createBrowserRouter(routes);
+
+export default router;

@@ -4,14 +4,14 @@ import App from './App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { RouterProvider } from 'react-router-dom';
+import router from './common/routes';
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+   <RouterProvider router={router} />
 );
 
