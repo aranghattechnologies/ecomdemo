@@ -1,10 +1,14 @@
 import { useParams } from "react-router-dom";
+import useProduct from "../hooks/useProduct";
 
 export default function ProductDetails() {
     
-    let {id} = useParams<{id : string}>();
+    let {id}    = useParams<{id : string}>();
+    let product = useProduct({id});
     
     return(<>
-        <h1>{id}</h1>
+        {product ? <>
+            <h1>{product?.title}</h1>
+        </> : "Sorry product not found"}
     </>)
 }
