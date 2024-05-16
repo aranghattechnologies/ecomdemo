@@ -26,6 +26,9 @@ export default function Cart(){
                             <div className="col">
                                 {item.product.price * item.quantity}
                             </div>
+                            <div className="col">
+                                <button className="btn btn-danger">Remove</button>
+                            </div>
                        </div>
                     </li>
                 ))}
