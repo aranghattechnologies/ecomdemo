@@ -1,0 +1,1 @@
+export const httpBaseUrl = "http://localhost:8080";
