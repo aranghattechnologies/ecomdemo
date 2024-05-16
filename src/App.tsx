@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useCurrentProfile from './hooks/useCurrentProfile';
+import { useSelector } from 'react-redux';
 
 function App() {
 
   let {isLoggedIn, profile} = useCurrentProfile();
+  let cartItems = useSelector((state:any) => state.cart);
 
   return (
     <div className='container-fluid bg-light p-0 m-0 vh-100'>
@@ -16,15 +18,23 @@ function App() {
             </div>
             { !isLoggedIn  ?
             <>
+            
             <div className="col-auto">
                 <a href='/register'>Register</a>
             </div>
             <div className="col-auto">
                 <a href='/login'>Login</a>
-            </div></> : <div className='col-auto'>
+            </div></> : 
+            <>
+            <div className='col-auto'>
+                <Link to="/cart" className='text-white'>
+                  <i className="bi bi-cart"></i> {cartItems?.items.length}
+                </Link>
+            </div>
+            <div className='col-auto'>
 
                 Welcome Back {profile?.name}
-            </div>
+            </div></>
           }
           </div>
            </div>
