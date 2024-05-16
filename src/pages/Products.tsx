@@ -1,3 +1,4 @@
+import ProductTile from "../components/ProductTile";
 import useProducts from "../hooks/useProducts"
 
 export default function Products() {
@@ -6,6 +7,6 @@ export default function Products() {
 
     return (<>
         <h1>Products</h1>
-        {products.map(product => <h1>{product.title}</h1>)}
+        {products.map(product => <ProductTile key={product.id} product={product} />)}
     </>)
 }
